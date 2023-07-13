@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace World.API.Models
+namespace World.API.DTO.Country
 {
-    public class Country
+    public class UpdateCountryDTO
     {
-        //only Property can be defined in the models
-        //no methods
-
         [Key] // explicit primary key 
         public int Id { get; set; }
 
