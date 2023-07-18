@@ -13,5 +13,8 @@ namespace World.API.Data
 
         //create country table and configure
         public DbSet<Country> Countries { get; set; }
+
+        //create state table and configure
+        public DbSet<States> States { get; set; }
     }
 }
