@@ -1,0 +1,26 @@
+﻿@page
+@model World.Web.Pages.StateModel
+@{
+}
+<h2> States List</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td> <b> Country Id </b></td>
+            <td> <b> State Name </b></td>
+            <td> <b> State Population </b></td>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model.States)
+            {
+                <tr>
+                    <td> @item.CountryId </td>
+                    <td> @item.Name </td>
+                    <td> @item.Population </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

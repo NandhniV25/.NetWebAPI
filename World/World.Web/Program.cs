@@ -12,6 +12,15 @@ builder.Services.AddHttpClient("WorldWebAPI", options =>
 
 #endregion
 
+#region Configure some services (client and server)
+
+builder.Services.AddHttpClient("WorldWebAPIs", options =>
+{
+    options.BaseAddress = new Uri("https://localhost:7284");
+});
+
+#endregion
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -15,7 +15,7 @@ namespace World.Web.Pages
 
         public List<CountryDTO> Countries { get; set; }
 
-        public void OnGet()
+        public async void OnGet()
         {
             var httpClient = _httpClientFactory.CreateClient("WorldWebAPI");
 

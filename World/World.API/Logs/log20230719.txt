@@ -1,0 +1,1232 @@
+2023-07-19 11:52:41.642 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 11:52:41.691 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 11:52:41.695 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 11:52:41.697 +07:00 [INF] Hosting environment: Development
+2023-07-19 11:52:41.698 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 11:52:44.213 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 11:52:44.638 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 426.5906ms
+2023-07-19 11:52:44.639 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 11:52:44.639 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 11:52:44.661 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 21.5202ms
+2023-07-19 11:52:44.723 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 83.6291ms
+2023-07-19 11:52:44.832 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 11:52:44.988 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 156.3533ms
+2023-07-19 11:53:03.779 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/api/Country - -
+2023-07-19 11:53:03.822 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 11:53:03.937 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 11:53:08.413 +07:00 [INF] Executed DbCommand (125ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 11:53:08.733 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 11:53:08.766 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 4807.8898ms
+2023-07-19 11:53:08.771 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 11:53:08.791 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 5012.7164ms
+2023-07-19 11:54:08.231 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7284/api/Country application/json 71
+2023-07-19 11:54:08.241 +07:00 [INF] CORS policy execution successful.
+2023-07-19 11:54:08.248 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.Create (World.API)'
+2023-07-19 11:54:08.267 +07:00 [INF] Route matched with {action = "Create", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[World.API.DTO.Country.CreateCountryDTO]] Create(World.API.DTO.Country.CreateCountryDTO) on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 11:54:08.505 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@__countryDTO_Name_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Countries] AS [c]
+        WHERE [c].[Name] = @__countryDTO_Name_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-07-19 11:54:08.645 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (Size = 10), @p1='?' (Size = 4000), @p2='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Countries] ([CountryCode], [Name], [ShortName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2023-07-19 11:54:08.673 +07:00 [INF] Executing CreatedAtActionResult, writing value of type 'World.API.Models.Country'.
+2023-07-19 11:54:08.703 +07:00 [INF] Executed action World.API.Controllers.CountryController.Create (World.API) in 431.1166ms
+2023-07-19 11:54:08.707 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.Create (World.API)'
+2023-07-19 11:54:08.712 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7284/api/Country application/json 71 - 201 - application/json;+charset=utf-8 481.4406ms
+2023-07-19 11:54:15.919 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 11:54:15.926 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 11:54:15.932 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 11:54:15.970 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 11:54:15.983 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 11:54:15.992 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 50.3208ms
+2023-07-19 11:54:15.996 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 11:54:16.000 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 81.0798ms
+2023-07-19 11:56:38.959 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 11:56:38.997 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 11:56:39.002 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 11:56:39.004 +07:00 [INF] Hosting environment: Development
+2023-07-19 11:56:39.006 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 11:56:40.014 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 11:56:40.459 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 11:56:40.459 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 11:56:40.477 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 15.8106ms
+2023-07-19 11:56:40.477 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 465.5289ms
+2023-07-19 11:56:40.605 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 146.5338ms
+2023-07-19 11:56:40.797 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 11:56:41.163 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 366.6563ms
+2023-07-19 11:56:51.146 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 11:56:51.157 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 11:56:51.175 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 11:56:52.445 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 11:56:52.535 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 11:56:52.566 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 1376.4336ms
+2023-07-19 11:56:52.568 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 11:56:52.578 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 1432.5665ms
+2023-07-19 12:03:34.154 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:03:34.198 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:03:34.201 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:03:34.203 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:03:34.204 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:03:35.189 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:03:35.578 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:03:35.578 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:03:35.579 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 393.4651ms
+2023-07-19 12:03:35.601 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 22.7921ms
+2023-07-19 12:03:35.650 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 71.5114ms
+2023-07-19 12:03:35.784 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:03:35.934 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 150.7669ms
+2023-07-19 12:03:46.143 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:03:46.162 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:03:46.204 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:03:49.003 +07:00 [INF] Executed DbCommand (82ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:03:49.201 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:03:49.242 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 3023.134ms
+2023-07-19 12:03:49.249 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:03:49.266 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 3123.9473ms
+2023-07-19 12:23:34.892 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:23:34.958 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:23:34.964 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:23:34.966 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:23:34.969 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:23:35.808 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:23:36.214 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:23:36.214 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:23:36.225 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 412.4613ms
+2023-07-19 12:23:36.247 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 33.4734ms
+2023-07-19 12:23:36.314 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 99.2746ms
+2023-07-19 12:23:36.452 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:23:36.647 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 194.2010ms
+2023-07-19 12:23:49.914 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:23:49.935 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:23:49.986 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:23:52.829 +07:00 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:23:53.047 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:23:53.088 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 3093.3055ms
+2023-07-19 12:23:53.092 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:23:53.104 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 3190.8462ms
+2023-07-19 12:24:04.794 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:24:04.803 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:24:04.811 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:24:04.977 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:24:04.993 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:24:05.000 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 178.5117ms
+2023-07-19 12:24:05.005 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:24:05.010 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 216.5232ms
+2023-07-19 12:24:07.758 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:24:07.765 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:24:07.836 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:24:07.892 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:24:07.909 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:24:07.922 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 79.0817ms
+2023-07-19 12:24:07.930 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:24:07.942 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 183.5902ms
+2023-07-19 12:34:27.585 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:34:27.630 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:34:27.633 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:34:27.634 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:34:27.635 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:34:28.284 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:34:28.689 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:34:28.689 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:34:28.693 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 410.3789ms
+2023-07-19 12:34:28.709 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 20.2177ms
+2023-07-19 12:34:28.763 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 73.7525ms
+2023-07-19 12:34:28.888 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:34:29.066 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 177.9229ms
+2023-07-19 12:34:36.305 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:34:36.326 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:34:36.367 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:34:39.325 +07:00 [INF] Executed DbCommand (86ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:34:39.568 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:34:39.610 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 3231.5549ms
+2023-07-19 12:34:39.618 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:34:39.640 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 3335.0402ms
+2023-07-19 12:34:42.300 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:34:42.308 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:34:42.312 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:34:42.466 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:34:42.478 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:34:42.486 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 170.0021ms
+2023-07-19 12:34:42.489 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:34:42.494 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 194.0982ms
+2023-07-19 12:34:43.998 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:34:44.004 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:34:44.012 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:34:44.075 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:34:44.088 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:34:44.094 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 69.2019ms
+2023-07-19 12:34:44.099 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:34:44.103 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 103.9634ms
+2023-07-19 12:34:45.109 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:34:45.117 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:34:45.129 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:34:45.151 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:34:45.163 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:34:45.168 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 24.8392ms
+2023-07-19 12:34:45.173 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:34:45.176 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 66.3294ms
+2023-07-19 12:36:09.610 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:36:09.619 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:36:09.625 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:36:09.652 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:36:09.661 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:36:09.666 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 30.7957ms
+2023-07-19 12:36:09.671 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:36:09.676 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 65.2991ms
+2023-07-19 12:36:10.604 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:36:10.608 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:36:10.618 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:36:10.633 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:36:10.643 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:36:10.650 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 25.7422ms
+2023-07-19 12:36:10.654 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:36:10.656 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 52.7240ms
+2023-07-19 12:36:11.015 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:36:11.019 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:36:11.025 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:36:11.044 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:36:11.058 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:36:11.066 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 31.7094ms
+2023-07-19 12:36:11.073 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:36:11.078 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 62.9696ms
+2023-07-19 12:36:53.115 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:36:53.182 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:36:53.186 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:36:53.188 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:36:53.190 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:36:54.093 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:36:54.462 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:36:54.464 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:36:54.465 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 374.3568ms
+2023-07-19 12:36:54.486 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 23.3525ms
+2023-07-19 12:36:54.537 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 72.2975ms
+2023-07-19 12:36:54.648 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:36:54.826 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 178.2017ms
+2023-07-19 12:37:01.443 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:37:01.461 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:37:01.504 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:37:04.284 +07:00 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:37:04.504 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:37:04.546 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 3029.9161ms
+2023-07-19 12:37:04.552 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:37:04.572 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 3129.2056ms
+2023-07-19 12:37:06.042 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:37:06.050 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:37:06.055 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:37:06.227 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:37:06.238 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:37:06.243 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 182.4996ms
+2023-07-19 12:37:06.245 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:37:06.248 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 205.8347ms
+2023-07-19 12:37:07.380 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:37:07.387 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:37:07.393 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:37:07.449 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:37:07.463 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:37:07.471 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 68.0864ms
+2023-07-19 12:37:07.477 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:37:07.483 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 102.0935ms
+2023-07-19 12:38:38.213 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:38:38.249 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:38:38.253 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:38:38.255 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:38:38.257 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:38:39.120 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:38:39.533 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:38:39.536 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:38:39.536 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 418.1025ms
+2023-07-19 12:38:39.566 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 32.3056ms
+2023-07-19 12:38:39.634 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 98.8462ms
+2023-07-19 12:38:39.718 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:38:39.877 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 158.6917ms
+2023-07-19 12:38:46.840 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:38:46.858 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:38:46.901 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:38:49.659 +07:00 [INF] Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:38:49.880 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:38:49.921 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 3006.3683ms
+2023-07-19 12:38:49.927 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:38:49.944 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 3103.7052ms
+2023-07-19 12:40:42.157 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:40:42.224 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:40:42.228 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:40:42.230 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:40:42.231 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:40:42.818 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:40:43.170 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:40:43.170 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:40:43.177 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 359.6688ms
+2023-07-19 12:40:43.194 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 24.6023ms
+2023-07-19 12:40:43.248 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 78.3516ms
+2023-07-19 12:40:43.386 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:40:43.548 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 161.4982ms
+2023-07-19 12:41:39.676 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:41:39.744 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:41:39.748 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:41:39.750 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:41:39.752 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:41:40.505 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:41:40.932 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:41:40.935 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:41:40.958 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 22.7854ms
+2023-07-19 12:41:40.959 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 458.0098ms
+2023-07-19 12:41:41.017 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 84.7063ms
+2023-07-19 12:41:41.115 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:41:41.265 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 149.8713ms
+2023-07-19 12:43:25.409 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:43:25.448 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:43:25.452 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:43:25.454 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:43:25.456 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:43:26.305 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:43:26.691 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:43:26.694 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:43:26.703 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 400.8348ms
+2023-07-19 12:43:26.718 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 26.4885ms
+2023-07-19 12:43:26.776 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 81.6679ms
+2023-07-19 12:43:26.878 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:43:27.040 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 161.8981ms
+2023-07-19 12:50:24.611 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:50:24.654 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:50:24.657 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:50:24.659 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:50:24.660 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:50:25.312 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:50:25.710 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:50:25.713 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:50:25.720 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 411.9677ms
+2023-07-19 12:50:25.733 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 22.6797ms
+2023-07-19 12:50:25.772 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.4765ms
+2023-07-19 12:50:25.890 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:50:26.059 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 168.4896ms
+2023-07-19 12:50:33.890 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:50:33.911 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:50:33.956 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:50:36.970 +07:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:50:37.189 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:50:37.236 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 3265.4011ms
+2023-07-19 12:50:37.243 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:50:37.261 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 3371.1963ms
+2023-07-19 12:50:41.140 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:50:41.146 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:50:41.151 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:50:41.326 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:50:41.337 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:50:41.340 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 146.3295ms
+2023-07-19 12:50:41.343 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:50:41.348 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 207.6195ms
+2023-07-19 12:50:41.858 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:50:41.864 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:50:41.870 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:50:41.920 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:50:41.931 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:50:41.937 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 56.2405ms
+2023-07-19 12:50:41.940 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:50:41.947 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 88.4354ms
+2023-07-19 12:50:42.863 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:50:42.869 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:50:42.876 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:50:42.890 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:50:42.898 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:50:42.904 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 20ms
+2023-07-19 12:50:42.912 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:50:42.916 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 53.4692ms
+2023-07-19 12:50:50.854 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:50:50.867 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:50:50.870 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:50:50.894 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:50:50.919 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:50:50.929 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 57.1496ms
+2023-07-19 12:50:50.944 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:50:50.962 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 107.4569ms
+2023-07-19 12:52:46.775 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:52:46.844 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:52:46.849 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:52:46.851 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:52:46.852 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:52:47.615 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:52:48.012 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:52:48.012 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:52:48.022 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 407.2374ms
+2023-07-19 12:52:48.044 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 31.4394ms
+2023-07-19 12:52:48.105 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 92.6147ms
+2023-07-19 12:52:48.228 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:52:48.426 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 198.1528ms
+2023-07-19 12:52:53.660 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:52:53.681 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:52:53.722 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:52:56.659 +07:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:52:56.871 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:52:56.919 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 3178.9718ms
+2023-07-19 12:52:56.926 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:52:56.945 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 3285.4644ms
+2023-07-19 12:52:58.751 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:52:58.758 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:52:58.766 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:52:58.909 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:52:58.922 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:52:58.927 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 151.411ms
+2023-07-19 12:52:58.932 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:52:58.939 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 187.9014ms
+2023-07-19 12:53:00.278 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 12:53:00.282 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:53:00.287 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:53:00.335 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:53:00.349 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:53:00.354 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 58.3532ms
+2023-07-19 12:53:00.361 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:53:00.365 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 86.8683ms
+2023-07-19 12:54:50.480 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 12:54:50.524 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 12:54:50.529 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 12:54:50.531 +07:00 [INF] Hosting environment: Development
+2023-07-19 12:54:50.532 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 12:54:51.549 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 12:54:51.887 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 342.4943ms
+2023-07-19 12:54:51.890 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 12:54:51.890 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 12:54:51.916 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 25.1468ms
+2023-07-19 12:54:51.974 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 83.3601ms
+2023-07-19 12:54:52.097 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 12:54:52.271 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 173.7493ms
+2023-07-19 12:57:03.888 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/api/States - -
+2023-07-19 12:57:03.916 +07:00 [INF] Executing endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 12:57:03.958 +07:00 [INF] Route matched with {action = "GetAll", controller = "States"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.States.StatesDTO]]] GetAll() on controller World.API.Controllers.StatesController (World.API).
+2023-07-19 12:57:06.881 +07:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CountryId], [s].[Name], [s].[Population]
+FROM [States] AS [s]
+2023-07-19 12:57:07.146 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.States.StatesDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:57:07.181 +07:00 [INF] Executed action World.API.Controllers.StatesController.GetAll (World.API) in 3211.7289ms
+2023-07-19 12:57:07.188 +07:00 [INF] Executed endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 12:57:07.220 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/api/States - - - 200 - application/json;+charset=utf-8 3331.8670ms
+2023-07-19 12:57:26.485 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/api/States - -
+2023-07-19 12:57:26.494 +07:00 [INF] Executing endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 12:57:26.503 +07:00 [INF] Route matched with {action = "GetAll", controller = "States"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.States.StatesDTO]]] GetAll() on controller World.API.Controllers.StatesController (World.API).
+2023-07-19 12:57:26.645 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CountryId], [s].[Name], [s].[Population]
+FROM [States] AS [s]
+2023-07-19 12:57:26.661 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.States.StatesDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:57:26.667 +07:00 [INF] Executed action World.API.Controllers.StatesController.GetAll (World.API) in 156.7489ms
+2023-07-19 12:57:26.673 +07:00 [INF] Executed endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 12:57:26.679 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/api/States - - - 200 - application/json;+charset=utf-8 193.9758ms
+2023-07-19 12:57:44.337 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/api/Country - -
+2023-07-19 12:57:44.354 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:57:44.386 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 12:57:44.450 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 12:57:44.493 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 12:57:44.506 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 111.6602ms
+2023-07-19 12:57:44.514 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 12:57:44.520 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 183.7009ms
+2023-07-19 13:50:47.564 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 13:50:47.617 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 13:50:47.622 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 13:50:47.624 +07:00 [INF] Hosting environment: Development
+2023-07-19 13:50:47.625 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 13:50:48.169 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 13:50:48.445 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 13:50:48.445 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 13:50:48.469 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 299.5697ms
+2023-07-19 13:50:48.469 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 22.6454ms
+2023-07-19 13:50:48.509 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 64.3944ms
+2023-07-19 13:50:48.581 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 13:50:48.736 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 154.6813ms
+2023-07-19 13:51:15.226 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 13:51:15.239 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:51:15.276 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 13:51:17.283 +07:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 13:51:17.422 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 13:51:17.454 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 2171.0556ms
+2023-07-19 13:51:17.458 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:51:17.470 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 2243.8213ms
+2023-07-19 13:51:54.247 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 13:51:54.291 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 13:51:54.294 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 13:51:54.296 +07:00 [INF] Hosting environment: Development
+2023-07-19 13:51:54.297 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 13:51:55.062 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 13:51:55.276 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 214.9582ms
+2023-07-19 13:51:55.288 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 13:51:55.288 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 13:51:55.304 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 15.8806ms
+2023-07-19 13:51:55.343 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.5369ms
+2023-07-19 13:51:55.462 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 13:51:55.541 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 79.4462ms
+2023-07-19 13:51:57.758 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 13:51:57.765 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:51:57.777 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 13:51:58.750 +07:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 13:51:58.813 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 13:51:58.837 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 1054.2811ms
+2023-07-19 13:51:58.840 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:51:58.847 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 1089.3923ms
+2023-07-19 13:52:00.772 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 13:52:00.778 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:52:00.782 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 13:52:00.887 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 13:52:00.894 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 13:52:00.898 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 110.6631ms
+2023-07-19 13:52:00.901 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:52:00.903 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 131.7121ms
+2023-07-19 13:52:01.988 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 13:52:01.993 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:52:01.996 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 13:52:02.040 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 13:52:02.050 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 13:52:02.054 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 52.4621ms
+2023-07-19 13:52:02.058 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:52:02.064 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 75.2156ms
+2023-07-19 13:52:02.653 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 13:52:02.656 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:52:02.659 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 13:52:02.669 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 13:52:02.677 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 13:52:02.681 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 17.012ms
+2023-07-19 13:52:02.686 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:52:02.691 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 38.1700ms
+2023-07-19 13:53:02.397 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 13:53:02.437 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 13:53:02.439 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 13:53:02.439 +07:00 [INF] Hosting environment: Development
+2023-07-19 13:53:02.440 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 13:53:03.108 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 13:53:03.330 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 13:53:03.330 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 13:53:03.333 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 226.0267ms
+2023-07-19 13:53:03.344 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 13.4653ms
+2023-07-19 13:53:03.378 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.3684ms
+2023-07-19 13:53:03.528 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 13:53:03.616 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 88.1221ms
+2023-07-19 13:53:06.295 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 13:53:06.300 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:53:06.312 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 13:53:07.219 +07:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 13:53:07.282 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 13:53:07.304 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 984.8695ms
+2023-07-19 13:53:07.307 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:53:07.313 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 1018.3655ms
+2023-07-19 13:53:57.695 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 13:53:57.755 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 13:53:57.760 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 13:53:57.762 +07:00 [INF] Hosting environment: Development
+2023-07-19 13:53:57.763 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 13:53:58.575 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 13:53:58.817 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 243.1068ms
+2023-07-19 13:53:58.818 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 13:53:58.818 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 13:53:58.826 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 8.5601ms
+2023-07-19 13:53:58.859 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.5546ms
+2023-07-19 13:53:59.018 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 13:53:59.088 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 69.9307ms
+2023-07-19 13:55:07.774 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 13:55:07.830 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 13:55:07.834 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 13:55:07.837 +07:00 [INF] Hosting environment: Development
+2023-07-19 13:55:07.839 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 13:55:08.733 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 13:55:08.966 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 236.3125ms
+2023-07-19 13:55:09.011 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 13:55:09.011 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 13:55:09.037 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 26.7083ms
+2023-07-19 13:55:09.094 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 83.1948ms
+2023-07-19 13:55:09.238 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 13:55:09.344 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 105.1294ms
+2023-07-19 13:57:04.976 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 13:57:05.026 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 13:57:05.031 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 13:57:05.032 +07:00 [INF] Hosting environment: Development
+2023-07-19 13:57:05.033 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 13:57:05.428 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 13:57:05.780 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 358.4652ms
+2023-07-19 13:57:05.785 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 13:57:05.785 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 13:57:05.812 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 26.6999ms
+2023-07-19 13:57:05.869 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 83.5005ms
+2023-07-19 13:57:05.948 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 13:57:06.089 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 141.0576ms
+2023-07-19 13:57:39.406 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 13:57:39.465 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 13:57:39.470 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 13:57:39.472 +07:00 [INF] Hosting environment: Development
+2023-07-19 13:57:39.474 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 13:57:40.238 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 13:57:40.468 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 228.5313ms
+2023-07-19 13:57:40.505 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 13:57:40.505 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 13:57:40.522 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 16.6009ms
+2023-07-19 13:57:40.579 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 74.3882ms
+2023-07-19 13:57:40.703 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 13:57:40.809 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 105.3904ms
+2023-07-19 13:57:42.791 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 13:57:42.796 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:57:42.813 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 13:57:43.735 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 13:57:43.791 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 13:57:43.809 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 988.6986ms
+2023-07-19 13:57:43.811 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 13:57:43.817 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 1025.8707ms
+2023-07-19 15:22:01.640 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:22:01.683 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:22:01.688 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:22:01.691 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:22:01.694 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:22:02.251 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:22:02.472 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 223.1348ms
+2023-07-19 15:22:02.485 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:22:02.485 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:22:02.493 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 8.0448ms
+2023-07-19 15:22:02.536 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 50.5674ms
+2023-07-19 15:22:02.596 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:22:02.689 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 93.1054ms
+2023-07-19 15:22:14.944 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 15:22:14.964 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 15:22:15.008 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 15:22:18.820 +07:00 [INF] Executed DbCommand (95ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 15:22:19.062 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 15:22:19.114 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 4086.3656ms
+2023-07-19 15:22:19.126 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 15:22:19.196 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 4252.0547ms
+2023-07-19 15:28:02.389 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:28:02.450 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:28:02.454 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:28:02.463 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:28:02.465 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:28:02.918 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:28:03.176 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 262.6006ms
+2023-07-19 15:28:03.190 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:28:03.190 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:28:03.201 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 11.2356ms
+2023-07-19 15:28:03.238 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 48.6443ms
+2023-07-19 15:28:03.321 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:28:03.449 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 128.0504ms
+2023-07-19 15:28:48.465 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:28:48.507 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:28:48.511 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:28:48.513 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:28:48.514 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:28:49.346 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:28:49.612 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:28:49.612 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:28:49.627 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 280.5190ms
+2023-07-19 15:28:49.647 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 34.7646ms
+2023-07-19 15:28:49.711 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 99.3466ms
+2023-07-19 15:28:49.779 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:28:49.900 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 120.3277ms
+2023-07-19 15:30:33.753 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:30:33.796 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:30:33.800 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:30:33.802 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:30:33.804 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:30:34.301 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:30:34.547 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 248.9635ms
+2023-07-19 15:30:34.558 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:30:34.558 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:30:34.582 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 23.6939ms
+2023-07-19 15:30:34.646 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 87.5512ms
+2023-07-19 15:30:34.799 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:30:34.898 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 98.2949ms
+2023-07-19 15:31:24.487 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:31:24.574 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:31:24.579 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:31:24.582 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:31:24.584 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:31:25.491 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:31:25.713 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:31:25.713 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:31:25.739 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 25.2622ms
+2023-07-19 15:31:25.739 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 245.9947ms
+2023-07-19 15:31:25.779 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.1381ms
+2023-07-19 15:31:25.860 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:31:25.974 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 113.7328ms
+2023-07-19 15:31:43.536 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:31:43.599 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:31:43.603 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:31:43.605 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:31:43.606 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:31:44.150 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:31:44.392 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 244.3414ms
+2023-07-19 15:31:44.403 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:31:44.403 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:31:44.418 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 14.2920ms
+2023-07-19 15:31:44.449 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.4449ms
+2023-07-19 15:31:44.671 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:31:44.772 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 100.9628ms
+2023-07-19 15:36:15.341 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:36:15.394 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:36:15.399 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:36:15.401 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:36:15.403 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:36:15.939 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:36:16.166 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 229.0978ms
+2023-07-19 15:36:16.178 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:36:16.178 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:36:16.190 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 11.5737ms
+2023-07-19 15:36:16.238 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.9932ms
+2023-07-19 15:36:16.301 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:36:16.318 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/favicon-32x32.png - -
+2023-07-19 15:36:16.340 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-07-19 15:36:16.343 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/favicon-32x32.png - - - 200 628 image/png 24.7105ms
+2023-07-19 15:36:16.406 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 105.0249ms
+2023-07-19 15:41:59.380 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:41:59.414 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:41:59.419 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:41:59.421 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:41:59.423 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:42:00.256 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:42:00.473 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:42:00.473 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:42:00.478 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 222.8969ms
+2023-07-19 15:42:00.495 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 21.9102ms
+2023-07-19 15:42:00.544 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 70.6925ms
+2023-07-19 15:42:00.741 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:42:00.828 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 88.0314ms
+2023-07-19 15:43:28.539 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:43:28.647 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:43:28.653 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:43:28.655 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:43:28.657 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:43:29.087 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:43:29.334 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 250.7085ms
+2023-07-19 15:43:29.347 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:43:29.347 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:43:29.358 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 11.7682ms
+2023-07-19 15:43:29.398 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.6186ms
+2023-07-19 15:43:29.459 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:43:29.584 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 125.6962ms
+2023-07-19 15:45:10.969 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:45:11.009 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:45:11.014 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:45:11.016 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:45:11.018 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:45:12.141 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:45:12.475 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 335.3323ms
+2023-07-19 15:45:12.485 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:45:12.485 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:45:12.502 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 16.4641ms
+2023-07-19 15:45:12.556 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 70.4591ms
+2023-07-19 15:45:12.626 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:45:12.783 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 156.5373ms
+2023-07-19 15:45:37.155 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 15:45:37.175 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 15:45:37.224 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 15:45:40.077 +07:00 [INF] Executed DbCommand (121ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 15:45:40.302 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 15:45:40.347 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 3109.9493ms
+2023-07-19 15:45:40.357 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 15:45:40.375 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 3220.2062ms
+2023-07-19 15:45:45.734 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 15:45:45.742 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 15:45:45.747 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 15:45:45.914 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 15:45:45.926 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 15:45:45.933 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 179.1618ms
+2023-07-19 15:45:45.939 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 15:45:45.942 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 207.4545ms
+2023-07-19 15:45:47.744 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 15:45:47.750 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 15:45:47.796 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 15:45:47.850 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 15:45:47.863 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 15:45:47.869 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 62.8263ms
+2023-07-19 15:45:47.873 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 15:45:47.877 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 132.2617ms
+2023-07-19 15:45:48.980 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 15:45:48.986 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 15:45:48.991 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 15:45:49.006 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 15:45:49.021 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 15:45:49.024 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 24.1563ms
+2023-07-19 15:45:49.027 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 15:45:49.033 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 52.2570ms
+2023-07-19 15:46:47.581 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:46:47.617 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:46:47.621 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:46:47.623 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:46:47.624 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:46:48.236 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:46:48.498 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 259.3922ms
+2023-07-19 15:46:48.500 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:46:48.500 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:46:48.516 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 15.8537ms
+2023-07-19 15:46:48.562 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.1477ms
+2023-07-19 15:46:48.729 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:46:48.857 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 127.5278ms
+2023-07-19 15:53:17.494 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:53:17.547 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:53:17.551 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:53:17.553 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:53:17.554 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:53:18.241 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:53:18.512 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 272.1057ms
+2023-07-19 15:53:18.513 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:53:18.523 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 9.6000ms
+2023-07-19 15:53:18.525 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:53:18.578 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 53.0605ms
+2023-07-19 15:53:18.775 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:53:18.907 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 131.6760ms
+2023-07-19 15:53:45.210 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:53:45.266 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:53:45.270 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:53:45.271 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:53:45.273 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:53:45.767 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:53:46.003 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 238.6433ms
+2023-07-19 15:53:46.015 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:53:46.015 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:53:46.037 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 21.3288ms
+2023-07-19 15:53:46.083 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 67.3909ms
+2023-07-19 15:53:46.156 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:53:46.278 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 121.7680ms
+2023-07-19 15:55:00.854 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 15:55:00.895 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 15:55:00.900 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 15:55:00.902 +07:00 [INF] Hosting environment: Development
+2023-07-19 15:55:00.904 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 15:55:01.557 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 15:55:01.831 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 274.2112ms
+2023-07-19 15:55:01.834 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 15:55:01.834 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 15:55:01.852 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 18.1156ms
+2023-07-19 15:55:01.903 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 69.0857ms
+2023-07-19 15:55:02.095 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 15:55:02.214 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 119.0114ms
+2023-07-19 20:34:06.748 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:34:06.770 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:34:06.773 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:34:06.774 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:34:06.775 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:34:08.669 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger - -
+2023-07-19 20:34:08.762 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger - - - 301 0 - 94.6931ms
+2023-07-19 20:34:08.781 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:34:09.025 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/swagger-ui-bundle.js - -
+2023-07-19 20:34:09.026 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/swagger-ui.css - -
+2023-07-19 20:34:09.028 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 246.5922ms
+2023-07-19 20:34:09.041 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/swagger-ui-standalone-preset.js - -
+2023-07-19 20:34:09.119 +07:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-07-19 20:34:09.120 +07:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-07-19 20:34:09.125 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/swagger-ui-standalone-preset.js - - - 200 312163 text/javascript 87.3700ms
+2023-07-19 20:34:09.131 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/swagger-ui.css - - - 200 144929 text/css 104.2603ms
+2023-07-19 20:34:09.147 +07:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-07-19 20:34:09.150 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/swagger-ui-bundle.js - - - 200 1061536 text/javascript 124.4243ms
+2023-07-19 20:34:09.155 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:34:09.165 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 9.4699ms
+2023-07-19 20:34:09.168 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:34:09.248 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 80.0303ms
+2023-07-19 20:34:09.604 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:34:09.697 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 93.5736ms
+2023-07-19 20:36:22.071 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:36:22.150 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:36:22.155 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:36:22.157 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:36:22.159 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:36:23.059 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger - -
+2023-07-19 20:36:23.184 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger - - - 301 0 - 127.4126ms
+2023-07-19 20:36:23.211 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:36:23.508 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 297.1493ms
+2023-07-19 20:36:23.513 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:36:23.530 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 16.6204ms
+2023-07-19 20:36:23.539 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:36:23.615 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 75.2415ms
+2023-07-19 20:36:24.040 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:36:24.152 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 111.7396ms
+2023-07-19 20:36:25.252 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 20:36:25.258 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:36:25.270 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 20:36:26.648 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 20:36:26.702 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:36:26.718 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 1442.9672ms
+2023-07-19 20:36:26.720 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:36:26.726 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 1473.6082ms
+2023-07-19 20:37:30.005 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 20:37:30.008 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:37:30.014 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 20:37:30.062 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 20:37:30.066 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:37:30.068 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 51.572ms
+2023-07-19 20:37:30.070 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:37:30.072 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 67.2979ms
+2023-07-19 20:37:31.815 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 20:37:31.817 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:37:31.819 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 20:37:31.835 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 20:37:31.837 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:37:31.838 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 16.7837ms
+2023-07-19 20:37:31.839 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:37:31.840 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 25.2929ms
+2023-07-19 20:38:19.045 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 20:38:19.049 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:38:19.050 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 20:38:19.055 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 20:38:19.059 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:38:19.062 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 9.8585ms
+2023-07-19 20:38:19.064 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:38:19.065 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 21.1546ms
+2023-07-19 20:38:33.636 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:38:33.662 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:38:33.664 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:38:33.666 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:38:33.667 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:38:34.427 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:38:34.765 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 339.9743ms
+2023-07-19 20:38:34.768 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:38:34.768 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:38:34.786 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 18.5542ms
+2023-07-19 20:38:34.827 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.9155ms
+2023-07-19 20:38:34.887 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:38:35.011 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 124.1659ms
+2023-07-19 20:38:44.683 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 20:38:44.703 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:38:44.744 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 20:38:46.974 +07:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 20:38:47.133 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:38:47.174 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 2419.1704ms
+2023-07-19 20:38:47.179 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:38:47.196 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 2512.9297ms
+2023-07-19 20:43:02.296 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:43:02.320 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:43:02.322 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:43:02.324 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:43:02.325 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:43:02.729 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:43:02.903 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 175.2130ms
+2023-07-19 20:43:02.912 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:43:02.912 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:43:02.925 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 13.4454ms
+2023-07-19 20:43:02.956 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.1482ms
+2023-07-19 20:43:03.012 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:43:03.090 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 77.8011ms
+2023-07-19 20:43:12.888 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 20:43:12.913 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:43:12.953 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 20:43:13.401 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 20:43:13.404 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:43:13.407 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 20:43:15.671 +07:00 [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 20:43:15.671 +07:00 [INF] Executed DbCommand (73ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 20:43:15.841 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:43:15.841 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:43:15.880 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 2915.1604ms
+2023-07-19 20:43:15.880 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 2462.895ms
+2023-07-19 20:43:15.885 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:43:15.886 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:43:15.900 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 3012.0177ms
+2023-07-19 20:43:15.900 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 2498.8991ms
+2023-07-19 20:45:10.430 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:45:10.456 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:45:10.459 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:45:10.460 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:45:10.461 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:45:11.348 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:45:11.675 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:45:11.675 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:45:11.676 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 330.5553ms
+2023-07-19 20:45:11.686 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 10.9779ms
+2023-07-19 20:45:11.720 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.4277ms
+2023-07-19 20:45:11.795 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:45:11.917 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 121.7202ms
+2023-07-19 20:48:49.426 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:48:49.465 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:48:49.468 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:48:49.470 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:48:49.471 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:48:49.825 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:48:50.084 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 260.5810ms
+2023-07-19 20:48:50.098 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:48:50.098 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:48:50.117 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 19.3897ms
+2023-07-19 20:48:50.178 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 79.8925ms
+2023-07-19 20:48:50.238 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:48:50.362 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 123.7581ms
+2023-07-19 20:49:55.939 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:49:55.973 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:49:55.977 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:49:55.978 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:49:55.979 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:49:56.643 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:49:56.848 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:49:56.848 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:49:56.849 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 207.5735ms
+2023-07-19 20:49:56.865 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 17.0492ms
+2023-07-19 20:49:56.904 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 55.8410ms
+2023-07-19 20:49:56.959 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:49:57.049 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 90.4090ms
+2023-07-19 20:50:07.957 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/States - -
+2023-07-19 20:50:07.973 +07:00 [INF] Executing endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 20:50:08.005 +07:00 [INF] Route matched with {action = "GetAll", controller = "States"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.States.StatesDTO]]] GetAll() on controller World.API.Controllers.StatesController (World.API).
+2023-07-19 20:50:10.018 +07:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CountryId], [s].[Name], [s].[Population]
+FROM [States] AS [s]
+2023-07-19 20:50:10.172 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.States.StatesDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:50:10.211 +07:00 [INF] Executed action World.API.Controllers.StatesController.GetAll (World.API) in 2195.2912ms
+2023-07-19 20:50:10.214 +07:00 [INF] Executed endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 20:50:10.225 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/States - - - 200 - application/json;+charset=utf-8 2267.5206ms
+2023-07-19 20:50:48.673 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:50:48.711 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:50:48.715 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:50:48.716 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:50:48.717 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:50:49.456 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:50:49.627 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:50:49.629 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:50:49.636 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 176.1396ms
+2023-07-19 20:50:49.655 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 27.7303ms
+2023-07-19 20:50:49.695 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.6224ms
+2023-07-19 20:50:49.755 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:50:49.846 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 90.8506ms
+2023-07-19 20:50:56.110 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/States - -
+2023-07-19 20:50:56.128 +07:00 [INF] Executing endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 20:50:56.164 +07:00 [INF] Route matched with {action = "GetAll", controller = "States"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.States.StatesDTO]]] GetAll() on controller World.API.Controllers.StatesController (World.API).
+2023-07-19 20:50:58.176 +07:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CountryId], [s].[Name], [s].[Population]
+FROM [States] AS [s]
+2023-07-19 20:50:58.339 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.States.StatesDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:50:58.383 +07:00 [INF] Executed action World.API.Controllers.StatesController.GetAll (World.API) in 2207.5232ms
+2023-07-19 20:50:58.386 +07:00 [INF] Executed endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 20:50:58.402 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/States - - - 200 - application/json;+charset=utf-8 2292.4232ms
+2023-07-19 20:51:32.636 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:51:32.690 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:51:32.694 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:51:32.696 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:51:32.697 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:51:33.033 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:51:33.278 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:51:33.278 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:51:33.283 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 249.8309ms
+2023-07-19 20:51:33.299 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 21.0916ms
+2023-07-19 20:51:33.351 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 72.9248ms
+2023-07-19 20:51:33.414 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:51:33.520 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 105.4409ms
+2023-07-19 20:51:39.379 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/States - -
+2023-07-19 20:51:39.396 +07:00 [INF] Executing endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 20:51:39.431 +07:00 [INF] Route matched with {action = "GetAll", controller = "States"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.States.StatesDTO]]] GetAll() on controller World.API.Controllers.StatesController (World.API).
+2023-07-19 20:51:41.458 +07:00 [INF] Executed DbCommand (54ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CountryId], [s].[Name], [s].[Population]
+FROM [States] AS [s]
+2023-07-19 20:51:41.611 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.States.StatesDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:51:41.657 +07:00 [INF] Executed action World.API.Controllers.StatesController.GetAll (World.API) in 2213.8562ms
+2023-07-19 20:51:41.660 +07:00 [INF] Executed endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 20:51:41.671 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/States - - - 200 - application/json;+charset=utf-8 2292.9844ms
+2023-07-19 20:53:53.308 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:53:53.348 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:53:53.352 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:53:53.355 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:53:53.356 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:53:54.130 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:53:54.322 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 193.4711ms
+2023-07-19 20:53:54.332 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:53:54.332 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:53:54.343 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 10.7627ms
+2023-07-19 20:53:54.377 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.6942ms
+2023-07-19 20:53:54.436 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:53:54.517 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 81.3709ms
+2023-07-19 20:55:06.310 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:55:06.352 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:55:06.355 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:55:06.357 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:55:06.358 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:55:07.240 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:55:07.438 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 199.7219ms
+2023-07-19 20:55:07.454 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:55:07.454 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:55:07.472 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 17.2408ms
+2023-07-19 20:55:07.526 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 71.3971ms
+2023-07-19 20:55:07.583 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:55:07.683 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 99.4895ms
+2023-07-19 20:58:23.803 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:58:23.827 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:58:23.830 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:58:23.831 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:58:23.832 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:58:24.627 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:58:24.825 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:58:24.825 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:58:24.833 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 200.3450ms
+2023-07-19 20:58:24.843 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 17.3021ms
+2023-07-19 20:58:24.884 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.1619ms
+2023-07-19 20:58:24.944 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:58:25.031 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 86.5494ms
+2023-07-19 20:58:31.947 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/States - -
+2023-07-19 20:58:31.965 +07:00 [INF] Executing endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 20:58:31.998 +07:00 [INF] Route matched with {action = "GetAll", controller = "States"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.States.StatesDTO]]] GetAll() on controller World.API.Controllers.StatesController (World.API).
+2023-07-19 20:58:34.163 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CountryId], [s].[Name], [s].[Population]
+FROM [States] AS [s]
+2023-07-19 20:58:34.299 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.States.StatesDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:58:34.338 +07:00 [INF] Executed action World.API.Controllers.StatesController.GetAll (World.API) in 2330.2819ms
+2023-07-19 20:58:34.342 +07:00 [INF] Executed endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 20:58:34.354 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/States - - - 200 - application/json;+charset=utf-8 2407.1310ms
+2023-07-19 20:59:23.490 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 20:59:23.518 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 20:59:23.522 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 20:59:23.523 +07:00 [INF] Hosting environment: Development
+2023-07-19 20:59:23.524 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 20:59:24.191 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 20:59:24.394 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 203.6399ms
+2023-07-19 20:59:24.404 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 20:59:24.405 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 20:59:24.422 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 17.3183ms
+2023-07-19 20:59:24.469 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 64.5276ms
+2023-07-19 20:59:24.540 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 20:59:24.678 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 138.0872ms
+2023-07-19 20:59:29.485 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/States - -
+2023-07-19 20:59:29.491 +07:00 [INF] Executing endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 20:59:29.502 +07:00 [INF] Route matched with {action = "GetAll", controller = "States"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.States.StatesDTO]]] GetAll() on controller World.API.Controllers.StatesController (World.API).
+2023-07-19 20:59:31.294 +07:00 [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CountryId], [s].[Name], [s].[Population]
+FROM [States] AS [s]
+2023-07-19 20:59:31.437 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.States.StatesDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:59:31.479 +07:00 [INF] Executed action World.API.Controllers.StatesController.GetAll (World.API) in 1967.3466ms
+2023-07-19 20:59:31.484 +07:00 [INF] Executed endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 20:59:31.495 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/States - - - 200 - application/json;+charset=utf-8 2010.1222ms
+2023-07-19 20:59:37.486 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 20:59:37.490 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:59:37.500 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 20:59:37.615 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 20:59:37.655 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:59:37.663 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 157.295ms
+2023-07-19 20:59:37.666 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:59:37.667 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 180.7365ms
+2023-07-19 20:59:40.968 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 20:59:40.970 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:59:40.973 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 20:59:41.007 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 20:59:41.015 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 20:59:41.019 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 41.6383ms
+2023-07-19 20:59:41.022 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 20:59:41.023 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 54.5133ms
+2023-07-19 21:03:20.021 +07:00 [INF] Now listening on: https://localhost:7284
+2023-07-19 21:03:20.060 +07:00 [INF] Now listening on: http://localhost:5039
+2023-07-19 21:03:20.062 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-19 21:03:20.063 +07:00 [INF] Hosting environment: Development
+2023-07-19 21:03:20.064 +07:00 [INF] Content root path: C:\Nandhni\GitRepo\.NetWebAPI\World\World.API
+2023-07-19 21:03:20.792 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - -
+2023-07-19 21:03:21.003 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - - - 200 - text/html;charset=utf-8 210.0631ms
+2023-07-19 21:03:21.011 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - -
+2023-07-19 21:03:21.011 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/_vs/browserLink - -
+2023-07-19 21:03:21.026 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_framework/aspnetcore-browser-refresh.js - - - 200 11988 application/javascript;+charset=utf-8 10.3368ms
+2023-07-19 21:03:21.073 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.3732ms
+2023-07-19 21:03:21.128 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - -
+2023-07-19 21:03:21.213 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 85.4514ms
+2023-07-19 21:03:24.293 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/States - -
+2023-07-19 21:03:24.310 +07:00 [INF] Executing endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 21:03:24.353 +07:00 [INF] Route matched with {action = "GetAll", controller = "States"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.States.StatesDTO]]] GetAll() on controller World.API.Controllers.StatesController (World.API).
+2023-07-19 21:03:26.484 +07:00 [INF] Executed DbCommand (70ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[CountryId], [s].[Name], [s].[Population]
+FROM [States] AS [s]
+2023-07-19 21:03:26.625 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.States.StatesDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 21:03:26.667 +07:00 [INF] Executed action World.API.Controllers.StatesController.GetAll (World.API) in 2302.9547ms
+2023-07-19 21:03:26.674 +07:00 [INF] Executed endpoint 'World.API.Controllers.StatesController.GetAll (World.API)'
+2023-07-19 21:03:26.689 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/States - - - 200 - application/json;+charset=utf-8 2396.0986ms
+2023-07-19 21:03:29.853 +07:00 [INF] Request starting HTTP/1.1 GET https://localhost:7284/api/Country - -
+2023-07-19 21:03:29.857 +07:00 [INF] Executing endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 21:03:29.868 +07:00 [INF] Route matched with {action = "GetAll", controller = "Country"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[World.API.DTO.Country.CountryDTO]]] GetAll() on controller World.API.Controllers.CountryController (World.API).
+2023-07-19 21:03:29.980 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[CountryCode], [c].[Name], [c].[ShortName]
+FROM [Countries] AS [c]
+2023-07-19 21:03:30.012 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[World.API.DTO.Country.CountryDTO, World.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-07-19 21:03:30.023 +07:00 [INF] Executed action World.API.Controllers.CountryController.GetAll (World.API) in 148.9081ms
+2023-07-19 21:03:30.025 +07:00 [INF] Executed endpoint 'World.API.Controllers.CountryController.GetAll (World.API)'
+2023-07-19 21:03:30.027 +07:00 [INF] Request finished HTTP/1.1 GET https://localhost:7284/api/Country - - - 200 - application/json;+charset=utf-8 173.3185ms
