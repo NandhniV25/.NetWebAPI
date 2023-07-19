@@ -13,4 +13,8 @@
     <None Remove="NewFolder1\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\images\world-map.jpg" />
+  </ItemGroup>
+
 </Project>
