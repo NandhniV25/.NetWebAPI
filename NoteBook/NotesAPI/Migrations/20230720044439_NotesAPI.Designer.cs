@@ -12,8 +12,8 @@ using NotesAPI.Data;
 namespace NotesAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230719110412_NotesMigration")]
-    partial class NotesMigration
+    [Migration("20230720044439_NotesAPI")]
+    partial class NotesAPI
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,8 +27,11 @@ namespace NotesAPI.Migrations
 
             modelBuilder.Entity("NotesAPI.Models.Notes", b =>
                 {
-                    b.Property<DateTime>("dateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -40,7 +43,10 @@ namespace NotesAPI.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("dateTime");
+                    b.Property<DateTime>("dateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Notes");
                 });

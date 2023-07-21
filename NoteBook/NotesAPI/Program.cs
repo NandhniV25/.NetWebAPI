@@ -1,6 +1,10 @@
 global using NotesAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using NotesAPI.Data;
+using NotesAPI.Mapping;
+using NotesAPI.Repository;
+using NotesAPI.Repository.IRepository;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +27,35 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 #endregion
 
+
+#region Configure AutoMapper
+
+builder.Services.AddAutoMapper(typeof(MapperProfile));
+
+#endregion
+
+#region Configure Country Repository - Interface and class
+
+builder.Services.AddTransient<INotesRepository, NotesRepository>();
+
+#endregion
+
+
+#region Configure Serilog
+
+builder.Host.UseSerilog((context, config) =>
+{
+    config.WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day);
+
+    if (context.HostingEnvironment.IsProduction() == false)
+    {
+        config.WriteTo.Console();
+    }
+});
+
+#endregion
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -37,11 +70,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-#region Use CORS
-app.UseCors("CustomPolicy");
-#endregion
 
 app.UseHttpsRedirection();
+
+#region use cors
+app.UseCors("CustomPolicy");
+#endregion
 
 app.UseAuthorization();
 

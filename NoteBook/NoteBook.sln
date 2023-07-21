@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesAPI", "NotesAPI\NotesAPI.csproj", "{F6F3B216-AEAA-4EB3-977C-6822265C2BD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotesAPI", "NotesAPI\NotesAPI.csproj", "{F6F3B216-AEAA-4EB3-977C-6822265C2BD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesWeb", "NotesWeb\NotesWeb.csproj", "{E87DDD8C-4076-4B1D-8771-7109C5A45502}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F6F3B216-AEAA-4EB3-977C-6822265C2BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6F3B216-AEAA-4EB3-977C-6822265C2BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6F3B216-AEAA-4EB3-977C-6822265C2BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E87DDD8C-4076-4B1D-8771-7109C5A45502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E87DDD8C-4076-4B1D-8771-7109C5A45502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E87DDD8C-4076-4B1D-8771-7109C5A45502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E87DDD8C-4076-4B1D-8771-7109C5A45502}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

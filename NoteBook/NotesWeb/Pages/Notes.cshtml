@@ -1,0 +1,33 @@
+﻿@page
+@model NotesWeb.Pages.NotesModel
+@{
+}
+<h2> Notes List</h2>
+<input type="button" class="right" onclick="location.href='/NotesById?id=0'" value="Add" />
+<br /><br />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td><b> ID </b></td>
+            <td><b> Title </b></td>
+            <td><b> DateTime </b></td>
+            <td><b> Description </b></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Notes)
+        {
+            <tr>
+                <td> @item.Id </td>
+                <td> @item.Title </td>
+                <td> @item.DateTime </td>
+                <td> @item.Description </td>
+                <td>
+                    <input type="button" onclick="location.href='/NotesById?id=@item.Id'" value="Edit" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

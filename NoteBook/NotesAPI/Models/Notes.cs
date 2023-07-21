@@ -7,9 +7,18 @@ namespace NotesAPI.Models
    
     public class Notes
     {
-        
+
         [Key]
-        public DateTime dateTime { get; set; }
+        public int Id { get; set; }
+
+        [Required]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime DateTime { get; set; }
+
+        public Notes()
+        {
+            DateTime = DateTime.Now;
+        }
 
         [Required]
         [MaxLength(50)]
