@@ -4,8 +4,10 @@ namespace first.Services.CharacterServices
 {
     public interface ICharacterServices
     {
-        Task<ServiceResponse<List<Characters>>> GetAllCharacters();
-        Task<ServiceResponse<Characters>> GetCharactersById(int id);
-        Task<ServiceResponse<List<Characters>>> AddCharacter(Characters newCharacter);
+        Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int userId);
+        Task<ServiceResponse<GetCharacterDto>> GetCharactersById(int id);
+        Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter);
+        Task<ServiceResponse<GetCharacterDto>> UpdateCharacter(UpdateCharacterDto updatedCharacter);
+        Task<ServiceResponse<List<GetCharacterDto>>> DeleteCharacter(int id);
     }
 }

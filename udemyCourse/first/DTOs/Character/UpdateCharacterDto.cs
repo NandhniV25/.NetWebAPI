@@ -1,16 +1,13 @@
-﻿using System.Security.Principal;
-
-namespace first.Models
+﻿namespace first.DTOs.Character
 {
-    public class Characters
+    public class UpdateCharacterDto
     {
-        public int  Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = "Nandhni";
         public int HitPoints { get; set; } = 10;
         public int Strength { get; set; } = 10;
         public int Defense { get; set; } = 10;
         public int Intelligence { get; set; } = 10;
         public RpgClass Class { get; set; } = RpgClass.Venkat;
-        public User? User { get; set; }
     }
 }

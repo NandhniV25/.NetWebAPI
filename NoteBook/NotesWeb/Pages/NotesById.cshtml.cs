@@ -16,8 +16,15 @@ namespace NotesWeb.Pages
         public NotesDto Notes { get; set; }
         public void OnGet(int id)
         {
-            var httpClient = _httpClientFactory.CreateClient("NotesWebAPI");
-            Notes = httpClient.GetFromJsonAsync<NotesDto>($"api/Notes/{id}").Result;
+            if (id == 0)
+            {
+                Notes = new NotesDto();
+            }
+            else
+            {
+                var httpClient = _httpClientFactory.CreateClient("NotesWebAPI");
+                Notes = httpClient.GetFromJsonAsync<NotesDto>($"api/Notes/{id}").Result;
+            }
         }
         public void OnPost()
         {

@@ -18,13 +18,6 @@ builder.Services.AddCors(Options =>
 
 #endregion
 
-#region Configure Database
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); //DefaultConnection in appsettings.json
-
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-
-#endregion
 
 #region Configure AutoMapper
 
