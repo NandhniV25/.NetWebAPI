@@ -1,13 +1,17 @@
 global using first.Models;
+global using first.DTOs.Weapon;
 global using first.Services.CharacterServices;
 global using first.DTOs.Character;
 global using Microsoft.EntityFrameworkCore;
 global using first.Data;
 global using first.DTOs.User;
+global using first.Services.WeaponService;
+global using first.Services.FightService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Filters;
 using Microsoft.OpenApi.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -67,7 +71,22 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
         };
     });
+
 #endregion
+
+#region Configure IHttpContextAccessor
+
+builder.Services.AddHttpContextAccessor();
+#endregion
+#region Configure IWeaponService and WeaponService
+
+builder.Services.AddScoped<IWeaponService, WeaponService>();
+#endregion
+#region Configure IFightService and FightService
+
+builder.Services.AddScoped<IFightService, FightService>();
+#endregion
+
 
 var app = builder.Build();
 

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using first.DTOs.Fight;
+using first.DTOs.Skill;
 
 namespace first.Automapper
 {
@@ -9,6 +11,13 @@ namespace first.Automapper
             CreateMap<Characters,GetCharacterDto>();
             CreateMap<AddCharacterDto,Characters>();
             CreateMap<UpdateCharacterDto,Characters>();
+
+            CreateMap<Weapon, GetWeaponDto>();
+
+            CreateMap<Skill, GetSkillDto>();
+
+            CreateMap<Characters, HighScoreDto>();
+
         }
     }
 }
