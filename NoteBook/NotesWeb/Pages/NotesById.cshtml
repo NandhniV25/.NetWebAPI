@@ -9,7 +9,9 @@
 <h4>Title:</h4>
 @Html.TextBoxFor(m => m.Notes.Title)
 <h4>Description:</h4>
-    <input type="text" name="Notes.Description" value="@Model.Notes.Description" size="150" /><br /><br />
+    <textarea type="text" rows="10" cols="100"  name="Notes.Description" />
+    @(Model.Notes.Description)
+    </textarea><br /><br />
     @if (Model.Notes.Id==0)
     {
         <input type="submit" value="Create" />
