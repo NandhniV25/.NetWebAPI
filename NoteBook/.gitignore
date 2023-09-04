@@ -26,8 +26,6 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
-[lL]og/
-[lL]ogs/
 msbuild.log
 msbuild.err
 msbuild.wrn
