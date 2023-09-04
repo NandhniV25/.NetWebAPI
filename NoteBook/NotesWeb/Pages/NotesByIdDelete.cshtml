@@ -2,3 +2,11 @@
 @model NotesWeb.Pages.NotesByIdDeleteModel
 @{
 }
+<form method="post">
+    <h2>Are you sure you want to delete this?</h2>
+    <h4>@Model.Notes.Title</h4>
+    <p>@Model.Notes.Description</p>
+    <input type="submit" value="Yes" /><br /><br />
+</form>
+
+<input type="button" onclick="location.href='/Notes'" value="No" />
